@@ -17,4 +17,344 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+
+  font-family: var(--inter), Serif;
+  font-variation-settings: "wght" var(--regular);
+  color: var(--font-color);
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-image: repeating-linear-gradient(to right, var(--bg-line-color) 0 2px, #ffffff00 2px 4px),
+  repeating-linear-gradient(to bottom, var(--bg-line-color) 0 2px, #ffffff00 2px 4px),
+  var(--bg-gradient);
+
+  background-color: var(--page-color);
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-family: "Inter-Variable", serif;
+  }
+}
+
+.header {
+  background-color: var(--page-color);
+  border: 2px solid var(--font-color);
+  max-width: 700px;
+  width: 100%;
+  height: 368px;
+  margin: 100px;
+  font-family: var(--pressStart), serif;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 25px;
+}
+
+.logo {
+  font-size: 65px;
+  line-height: 100%;
+  font-family: var(--pressStart), serif;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.title {
+  font-size: 23px;
+  line-height: 100%;
+  margin-block-start: 20px;
+  margin-block-end: 25px;
+}
+
+.theme-menu__item {
+  margin-block-end: 7px;
+  cursor: pointer;
+}
+
+.theme-menu__item:last-child {
+  margin-block-end: 0;
+}
+
+.theme-menu__button {
+  background: none;
+  border: none;
+  position: relative;
+  margin-inline-start: 15px;
+  font-size: 14px;
+  line-height: 100%;
+  text-transform: uppercase;
+  transition: color 0.6s;
+  cursor: pointer;
+}
+
+.theme-menu__button:disabled {
+  opacity: 60%;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶️";
+  position: absolute;
+  left: -18px;
+  animation: arrow 1s infinite;
+  animation-timing-function: step-start;
+}
+
+@keyframes arrow {
+  0% {
+    left: -18px;
+  }
+
+  50% {
+    left: -14px;
+  }
+
+  100% {
+    left: -18px;
+  }
+}
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: var(--font-color);
+  transition: width 0.6s, opacity 0.6s;
+}
+
+.theme-menu__button:focus {
+  opacity: 60%;
+  outline: none;
+}
+
+.theme-menu__button:focus-visible::after {
+  outline: none;
+  width: 100%;
+}
+
+.theme-menu__button:hover {
+  opacity: 60%;
+}
+
+.main {
+  display: grid;
+  gap: 50px;
+  width: 700px;
+}
+
+.post__block {
+  background-color: var(--page-color);
+  border: 2px solid var(--font-color);
+}
+
+.post__title {
+  font-size: 18px;
+  line-height: 122%;
+  font-variation-settings: "wght" var(--bold);
+  margin: 5px 10px;
+}
+
+.post__cover {
+  position: relative;
+  height: 696px;
+  border-top: none;
+  border-bottom: none;
+}
+
+.image {
+  width: 696px;
+}
+
+.watermark {
+  position: absolute;
+  font-size: 14px;
+  right: 26px;
+  top: 27px;
+  background-blend-mode: hard-light;
+  opacity: 0.5;
+}
+
+.watermark {
+  text-shadow: -1px 0 var(--page-color),
+  0 1px var(--page-color),
+  1px 0 var(--page-color),
+  0 -1px var(--page-color);
+}
+
+@supports ((text-stroke: 1px var(--page-color)) or (-webkit-text-stroke: 1px var(--page-color))) {
+  .watermark {
+    -webkit-text-stroke: 1px var(--page-color);
+    text-stroke: 1px var(--page-color);
+    text-shadow: none;
+  }
+}
+
+.post__content {
+  margin: 23px 25px;
+  display: grid;
+  gap: 24px;
+}
+
+.post__buttons {
+  margin: 26px 25px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--font-color);
+  font-size: 14px;
+}
+
+.card__like-button {
+  width: 130px;
+  padding: 11px 17px;
+}
+
+.animation-button {
+  position: relative;
+  border: 2px solid var(--font-color);
+  transition: box-shadow ease-in-out 0.5s;
+  overflow: hidden;
+}
+
+.animation-button:focus {
+  outline: none;
+}
+
+.animation-button:focus-visible {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--font-color);
+}
+
+.animation-button::before {
+  content: '';
+  position: absolute;
+  line-height: 90%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transform: translate(-100%);
+  background-color: var(--btn-hover-color);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+.animation-button:hover::before {
+  transform: translate(0);
+}
+
+.button__text {
+  font-family: var(--pressStart), solid;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s;
+  transition-delay: 0.03s;
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s;
+}
+
+.like-icon .contour {
+  fill: var(--font-color);
+  transition: fill 0.1s;
+}
+
+.like-icon:hover .core {
+  fill: var(--font-color);
+  transition: fill 0.3s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--font-color);
+  transition: fill 0.3s;
+  transition-delay: 0.05s;
+}
+
+.like-icon:active .main-body {
+  transition: fill 0.3s 0.05s;
+  fill: var(--accent-color);
+}
+
+.like-icon:active .core {
+  transition: fill 0.3s;
+  fill: var(--accent-color);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--accent-color);
+  animation: fill 0.3s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--accent-color);
+  animation: fill 0.3s 00.5s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--accent-color);
+  animation: fill 0.3s 00.6s;
+}
+
+.like-icon.is-liked .heart {
+  animation: like 0.3s 0.1s 1;
+  transform-origin: center;
+  animation-direction: alternate;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-boom 0.3s 0.3s 1;
+  animation-direction: alternate;
+}
+
+@keyframes like {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sparks-boom {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
