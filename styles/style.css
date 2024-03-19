@@ -34,7 +34,6 @@
   background-color: var(--page-color);
   background-attachment: fixed;
   background-size: cover;
-
 }
 
 @supports (font-variation-settings: normal) {
@@ -43,9 +42,12 @@
   }
 }
 
-.header {
+.block {
   background-color: var(--page-color);
   border: 2px solid var(--font-color);
+}
+
+.header {
   max-width: clamp(375px, 100%, 700px);
   width: 100%;
   height: 368px;
@@ -53,7 +55,6 @@
   font-family: var(--pressStart), serif;
   text-transform: uppercase;
   font-style: normal;
-  font-weight: 400;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,8 +65,6 @@
 .logo {
   font-size: clamp(49px, 1.9087rem + 4.9231vw, 65px);
   line-height: 100%;
-  font-family: var(--pressStart), serif;
-  text-transform: uppercase;
   user-select: none;
 }
 
@@ -98,7 +97,7 @@
 }
 
 .theme-menu__button:disabled {
-  opacity: 60%;
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -112,7 +111,7 @@
 }
 
 .theme-menu__button:focus {
-  opacity: 60%;
+  opacity: 0.6;
   outline: none;
 }
 
@@ -122,7 +121,7 @@
 }
 
 .theme-menu__button:hover {
-  opacity: 60%;
+  opacity: 0.6;
 }
 
 .main {
@@ -130,11 +129,6 @@
   justify-items: center;
   gap: 50px;
   max-width: clamp(375px, 100%, 700px);
-}
-
-.post {
-  background-color: var(--page-color);
-  border: 2px solid var(--font-color);
 }
 
 .post__title {
@@ -162,9 +156,6 @@
   top: 27px;
   background-blend-mode: hard-light;
   opacity: 0.5;
-}
-
-.watermark {
   text-shadow: -1px 0 var(--page-color),
   0 1px var(--page-color),
   1px 0 var(--page-color),
@@ -273,8 +264,6 @@
 .dialog[open] {
   padding: 30px;
   max-width: 353px;
-  background-color: var(--page-color);
-  border: 2px solid var(--font-color);
   font-family: var(--pressStart);
   font-size: 14px;
   color: var(--font-color);
@@ -300,18 +289,18 @@
 .dialog__btn {
   text-transform: uppercase;
   padding: 11px;
+  width: 100%;
 }
 
 @media (width <= 375px) {
   .animation-button {
     flex-direction: column;
-  }  
+  }
 
   .dialog[open] {
     padding: 30px 42px;
   }
 }
-
 
 .saturate {
   filter: saturate(400%);
