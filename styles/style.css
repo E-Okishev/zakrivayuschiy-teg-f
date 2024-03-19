@@ -25,6 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-block: 100px;
 
   background-image: repeating-linear-gradient(to right, var(--bg-line-color) 0 2px, #ffffff00 2px 4px),
   repeating-linear-gradient(to bottom, var(--bg-line-color) 0 2px, #ffffff00 2px 4px),
@@ -48,7 +49,7 @@
   max-width: clamp(375px, 100%, 700px);
   width: 100%;
   height: 368px;
-  margin: 100px;
+  margin-block-end: 100px;
   font-family: var(--pressStart), serif;
   text-transform: uppercase;
   font-style: normal;
@@ -101,28 +102,6 @@
   pointer-events: none;
 }
 
-.theme-menu__button:disabled::before {
-  content: "▶️";
-  position: absolute;
-  left: -18px;
-  animation: arrow 1s infinite;
-  animation-timing-function: step-start;
-}
-
-@keyframes arrow {
-  0% {
-    left: -18px;
-  }
-
-  50% {
-    left: -14px;
-  }
-
-  100% {
-    left: -18px;
-  }
-}
-
 .theme-menu__button::after {
   content: '';
   display: block;
@@ -148,11 +127,12 @@
 
 .main {
   display: grid;
+  justify-items: center;
   gap: 50px;
-  width: 700px;
+  max-width: clamp(375px, 100%, 700px);
 }
 
-.post__block {
+.post {
   background-color: var(--page-color);
   border: 2px solid var(--font-color);
 }
@@ -166,13 +146,13 @@
 
 .post__cover {
   position: relative;
-  height: 696px;
-  border-top: none;
-  border-bottom: none;
+  border-top: 2px solid var(--font-color);
+  border-bottom: 2px solid var(--font-color);
 }
 
 .image {
-  width: 696px;
+  max-width: 100%;
+  display: block;
 }
 
 .watermark {
@@ -218,6 +198,9 @@
   cursor: pointer;
   color: var(--font-color);
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card__like-button {
@@ -241,25 +224,6 @@
   box-shadow: 2px 2px 0 var(--font-color);
 }
 
-.animation-button::before {
-  content: '';
-  position: absolute;
-  line-height: 90%;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  transform: translate(-100%);
-  background-color: var(--btn-hover-color);
-  transform-origin: left;
-  transition: transform 0.5s ease-in-out;
-  mix-blend-mode: difference;
-}
-
-.animation-button:hover::before {
-  transform: translate(0);
-}
-
 .button__text {
   font-family: var(--pressStart), solid;
 }
@@ -268,93 +232,39 @@
   opacity: 0;
 }
 
-.like-icon .core {
-  fill: transparent;
-  transition: fill 0.3s;
-  transition-delay: 0.03s;
+.like-icon:focus {
+  outline: none;
 }
 
-.like-icon .main-body {
-  fill: transparent;
-  transition: fill 0.3s;
+.like-icon:focus-visible {
+  outline: none;
+  border: 2px solid var(--font-color);
 }
 
-.like-icon .contour {
-  fill: var(--font-color);
-  transition: fill 0.1s;
+.saturate {
+  filter: saturate(400%);
 }
 
-.like-icon:hover .core {
-  fill: var(--font-color);
-  transition: fill 0.3s;
+.invert {
+  filter: invert();
+  opacity: 70%;
 }
 
-.like-icon:hover .main-body {
-  fill: var(--font-color);
-  transition: fill 0.3s;
-  transition-delay: 0.05s;
+.blur {
+  filter: blur(0.6rem);
 }
 
-.like-icon:active .main-body {
-  transition: fill 0.3s 0.05s;
-  fill: var(--accent-color);
+.sepia {
+  filter: sepia(100%);
 }
 
-.like-icon:active .core {
-  transition: fill 0.3s;
-  fill: var(--accent-color);
+.floppy-btn {
+  border: 2px solid var(--font-color);
+  background-color: var(--page-color);
+  padding: 15px 20px;
 }
 
-.like-icon.is-liked .core {
-  fill: var(--accent-color);
-  animation: fill 0.3s;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--accent-color);
-  animation: fill 0.3s 00.5s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--accent-color);
-  animation: fill 0.3s 00.6s;
-}
-
-.like-icon.is-liked .heart {
-  animation: like 0.3s 0.1s 1;
-  transform-origin: center;
-  animation-direction: alternate;
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks-boom 0.3s 0.3s 1;
-  animation-direction: alternate;
-}
-
-@keyframes like {
-  0% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.2);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes sparks-boom {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+.floppy {
+  max-width: 21px;
+  margin-inline-end: 8px;
 }
