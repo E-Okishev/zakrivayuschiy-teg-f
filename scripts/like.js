@@ -32,6 +32,7 @@ function setButtonText(heart, button) {
       () => (button.querySelector('.button__text').textContent = 'Unlike'),
       500
     );
+
   } else {
     setTimeout(
       () => (button.querySelector('.button__text').textContent = 'Like'),

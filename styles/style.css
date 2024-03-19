@@ -243,10 +243,6 @@
   opacity: 0;
 }
 
-.like-icon:focus {
-  outline: none;
-}
-
 .like-icon:focus-visible {
   outline: none;
   border: 2px solid var(--font-color);
