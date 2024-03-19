@@ -194,13 +194,14 @@
 
 .button {
   border: none;
-  background-color: transparent;
+  background-color: var(--page-color);
   cursor: pointer;
   color: var(--font-color);
   font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 }
 
 .card__like-button {
@@ -224,6 +225,25 @@
   box-shadow: 2px 2px 0 var(--font-color);
 }
 
+.animation-button::before {
+  content: '';
+  position: absolute;
+  line-height: 90%;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transform: translate(-100%);
+  background-color: var(--btn-hover-color);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+.animation-button:hover::before {
+  transform: translate(0);
+}
+
 .button__text {
   font-family: var(--pressStart), solid;
 }
@@ -241,13 +261,64 @@
   border: 2px solid var(--font-color);
 }
 
+.floppy-btn {
+  padding: 15px 20px;
+}
+
+.floppy {
+  max-width: 21px;
+  height: 21px;
+}
+
+.dialog[open] {
+  padding: 30px;
+  max-width: 353px;
+  background-color: var(--page-color);
+  border: 2px solid var(--font-color);
+  font-family: var(--pressStart);
+  font-size: 14px;
+  color: var(--font-color);
+  display: grid;
+  gap: 30px;
+}
+
+.dialog::backdrop {
+  background: #000;
+  opacity: 0.75;
+}
+
+.dialog__block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal-icon {
+  max-width: 39px;
+}
+
+.dialog__btn {
+  text-transform: uppercase;
+  padding: 11px;
+}
+
+@media (width <= 375px) {
+  .animation-button {
+    flex-direction: column;
+  }  
+
+  .dialog[open] {
+    padding: 30px 42px;
+  }
+}
+
+
 .saturate {
   filter: saturate(400%);
 }
 
 .invert {
-  filter: invert();
-  opacity: 70%;
+  filter: invert(70%);
 }
 
 .blur {
@@ -258,13 +329,14 @@
   filter: sepia(100%);
 }
 
-.floppy-btn {
-  border: 2px solid var(--font-color);
-  background-color: var(--page-color);
-  padding: 15px 20px;
+.light-gray {
+  filter: brightness(200%) grayscale(1);
 }
 
-.floppy {
-  max-width: 21px;
-  margin-inline-end: 8px;
+.opacity {
+  filter: opacity(0.5) saturate(250%);
+}
+
+.brightness {
+  filter: brightness(2);
 }
