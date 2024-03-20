@@ -28,16 +28,16 @@
   margin-block: 100px;
 
   background-image: repeating-linear-gradient(
-      to right,
-      var(--bg-line-color) 0 2px,
-      #ffffff00 2px 4px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      var(--bg-line-color) 0 2px,
-      #ffffff00 2px 4px
-    ),
-    var(--bg-gradient);
+    to right,
+    var(--bg-line-color) 0 2px,
+    #ffffff00 2px 4px
+  ),
+  repeating-linear-gradient(
+    to bottom,
+    var(--bg-line-color) 0 2px,
+    #ffffff00 2px 4px
+  ),
+  var(--bg-gradient);
 
   background-color: var(--page-color);
   background-attachment: fixed;
@@ -67,7 +67,7 @@
   align-items: center;
   justify-content: flex-end;
   padding-block-start: 136px;
-  padding-block-end: 25px;
+  padding-block-end: 23px;
 }
 
 .logo {
@@ -85,11 +85,11 @@
   font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
   line-height: 100%;
   margin-block-start: 20px;
-  margin-block-end: 25px;
+  margin-block-end: 21px;
 }
 
 .theme-menu__item {
-  margin-block-end: 7px;
+  margin-block-end: 8px;
   cursor: pointer;
 }
 
@@ -101,7 +101,7 @@
   background: none;
   border: none;
   position: relative;
-  margin-inline-start: 15px;
+  margin-inline-start: 21px;
   font-size: 14px;
   line-height: 100%;
   text-transform: uppercase;
@@ -140,7 +140,7 @@
 .main {
   display: grid;
   justify-items: center;
-  gap: 50px;
+  gap: 49px;
   max-width: clamp(375px, 100%, 700px);
 }
 
@@ -148,7 +148,7 @@
   font-size: 18px;
   line-height: 122%;
   font-variation-settings: "wght" var(--bold);
-  margin: 5px 10px;
+  margin: 4px 10px;
 }
 
 .post__cover {
@@ -174,7 +174,7 @@
   background-blend-mode: hard-light;
   opacity: 0.5;
   text-shadow: -1px 0 var(--page-color), 0 1px var(--page-color),
-    1px 0 var(--page-color), 0 -1px var(--page-color);
+  1px 0 var(--page-color), 0 -1px var(--page-color);
 }
 
 @supports (
@@ -189,16 +189,17 @@
 }
 
 .post__content {
-  margin: 23px 25px;
+  margin: 24px 25px;
   display: grid;
-  gap: 24px;
+  gap: 28px;
+  line-height: 117%;
 }
 
 .post__buttons {
-  margin: 26px 25px;
+  margin: 25px;
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 4px;
 }
 
 .button {
@@ -321,12 +322,18 @@
     padding-block-start: 120px;
   }
 
+  .watermark {
+    right: 11px;
+    top: 23px;
+  }
+
   .animation-button {
     flex-direction: column;
   }
 
-  .dialog[open] {
-    padding: 30px 42px;
+  .floppy {
+    max-width: 28px;
+    height: 28px;
   }
 }
 

@@ -21,15 +21,29 @@
   animation-timing-function: ease-in-out;
 }
 
+@media (width <= 375px) {
+  @keyframes active-themes {
+    0% {
+      left: -19px;
+    }
+    50% {
+      left: -14px;
+    }
+    100% {
+      left: -19px;
+    }
+  }
+}
+
 @keyframes active-themes {
   0% {
-    left: -18px;
+    left: -21px;
   }
   50% {
     left: -14px;
   }
   100% {
-    left: -18px;
+    left: -21px;
   }
 }
 
