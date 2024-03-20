@@ -27,9 +27,17 @@
   align-items: center;
   margin-block: 100px;
 
-  background-image: repeating-linear-gradient(to right, var(--bg-line-color) 0 2px, #ffffff00 2px 4px),
-  repeating-linear-gradient(to bottom, var(--bg-line-color) 0 2px, #ffffff00 2px 4px),
-  var(--bg-gradient);
+  background-image: repeating-linear-gradient(
+      to right,
+      var(--bg-line-color) 0 2px,
+      #ffffff00 2px 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--bg-line-color) 0 2px,
+      #ffffff00 2px 4px
+    ),
+    var(--bg-gradient);
 
   background-color: var(--page-color);
   background-attachment: fixed;
@@ -49,8 +57,7 @@
 
 .header {
   max-width: clamp(375px, 100%, 700px);
-  width: 100%;
-  height: 368px;
+  inline-size: 100%;
   margin-block-end: 100px;
   font-family: var(--pressStart), serif;
   text-transform: uppercase;
@@ -59,13 +66,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 25px;
+  padding-block-start: 136px;
+  padding-block-end: 25px;
 }
 
 .logo {
   font-size: clamp(49px, 1.9087rem + 4.9231vw, 65px);
   line-height: 100%;
   user-select: none;
+  text-decoration: none;
+}
+
+.logo:focus-visible {
+  outline: none;
 }
 
 .title {
@@ -102,7 +115,7 @@
 }
 
 .theme-menu__button::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 2px;
@@ -145,24 +158,29 @@
 }
 
 .image {
+  object-fit: cover;
+  object-position: center;
   max-width: 100%;
   display: block;
 }
 
 .watermark {
   position: absolute;
+  font-family: var(--pressStart), serif;
+  text-transform: uppercase;
   font-size: 14px;
   right: 26px;
   top: 27px;
   background-blend-mode: hard-light;
   opacity: 0.5;
-  text-shadow: -1px 0 var(--page-color),
-  0 1px var(--page-color),
-  1px 0 var(--page-color),
-  0 -1px var(--page-color);
+  text-shadow: -1px 0 var(--page-color), 0 1px var(--page-color),
+    1px 0 var(--page-color), 0 -1px var(--page-color);
 }
 
-@supports ((text-stroke: 1px var(--page-color)) or (-webkit-text-stroke: 1px var(--page-color))) {
+@supports (
+  (text-stroke: 1px var(--page-color)) or
+    (-webkit-text-stroke: 1px var(--page-color))
+) {
   .watermark {
     -webkit-text-stroke: 1px var(--page-color);
     text-stroke: 1px var(--page-color);
@@ -180,11 +198,11 @@
   margin: 26px 25px;
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 10px;
 }
 
 .button {
-  border: none;
+  border: 2px solid transparent;
   background-color: var(--page-color);
   cursor: pointer;
   color: var(--font-color);
@@ -217,7 +235,7 @@
 }
 
 .animation-button::before {
-  content: '';
+  content: "";
   position: absolute;
   line-height: 90%;
   left: 0;
@@ -237,6 +255,11 @@
 
 .button__text {
   font-family: var(--pressStart), solid;
+}
+
+.card__icon-button:focus-visible {
+  outline: none;
+  border: 2px solid var(--font-color);
 }
 
 .sparks {
@@ -262,7 +285,6 @@
   max-width: 353px;
   font-family: var(--pressStart);
   font-size: 14px;
-  color: var(--font-color);
   display: grid;
   gap: 30px;
 }
@@ -282,6 +304,12 @@
   max-width: 39px;
 }
 
+.modal-title {
+  color: var(--font-color);
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
 .dialog__btn {
   text-transform: uppercase;
   padding: 11px;
@@ -289,6 +317,10 @@
 }
 
 @media (width <= 375px) {
+  .header {
+    padding-block-start: 120px;
+  }
+
   .animation-button {
     flex-direction: column;
   }

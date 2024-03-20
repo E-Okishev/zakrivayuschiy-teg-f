@@ -18,7 +18,7 @@
   position: absolute;
   left: -18px;
   animation: active-themes 1s infinite;
-  animation-timing-function: step-start;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes active-themes {
@@ -101,7 +101,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.5);
   }
   100% {
     transform: scale(1);
