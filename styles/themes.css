@@ -29,3 +29,18 @@
 
   --bg-gradient: linear-gradient(180deg, #007F0C 0%, #004306 100%);
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --regular: 465;
+    --bold: 785;
+
+    --font-color: #00CC14;
+    --page-color: #000000;
+    --bg-line-color: var(--page-color);
+    --btn-hover-color: var(--font-color);
+    --heart-color-contour: var(--font-color);
+
+    --bg-gradient: linear-gradient(180deg, #007F0C 0%, #004306 100%);
+  }
+}
