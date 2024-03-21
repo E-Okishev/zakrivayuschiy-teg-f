@@ -283,12 +283,12 @@
 
 .dialog[open] {
   padding: 30px;
-  max-width: 353px;
+  max-width: 358px;
   font-family: var(--pressStart);
   color: var(--font-color);
-  font-size: 14px;
+  font-size: 12px;
   display: grid;
-  gap: 30px;
+  gap: 29px;
 }
 
 .dialog::backdrop {
@@ -334,6 +334,12 @@
   .floppy {
     max-width: 28px;
     height: 28px;
+  }
+
+  .dialog[open] {
+    max-width: 341px;
+    padding: 30px 40px;
+    gap: 28px;
   }
 }
 
