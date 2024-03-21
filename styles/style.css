@@ -284,9 +284,6 @@
 .dialog[open] {
   padding: 30px;
   max-width: 358px;
-  font-family: var(--pressStart), solid;
-  color: var(--font-color);
-  font-size: 12px;
   display: grid;
   gap: 29px;
 }
@@ -307,6 +304,9 @@
 }
 
 .modal-title {
+  font-family: var(--pressStart), solid;
+  color: var(--font-color);
+  font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
 }
@@ -339,7 +339,6 @@
   .dialog[open] {
     max-width: 341px;
     padding: 30px 40px;
-    gap: 28px;
   }
 }
 
