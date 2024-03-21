@@ -284,7 +284,7 @@
 .dialog[open] {
   padding: 30px;
   max-width: 358px;
-  font-family: var(--pressStart);
+  font-family: var(--pressStart), solid;
   color: var(--font-color);
   font-size: 12px;
   display: grid;
