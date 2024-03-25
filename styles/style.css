@@ -307,7 +307,6 @@
 .modal-title {
   font-family: var(--pressStart), solid;
   font-weight: var(--regular);
-  /*Уважаемый ревьюер, прошу объяснить, зачем добавлять сюда font-weight? Я же добавил это свойство в файле fonts.css. Мой тг - @okishevegor*/
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
